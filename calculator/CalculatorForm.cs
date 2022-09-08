@@ -16,8 +16,8 @@ namespace calculator
         {
             InitializeComponent();
         }
+
         
-      
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -37,7 +37,7 @@ namespace calculator
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            
+
             textBox1.Text = textBox1.Text + "+";
         }
 
@@ -80,6 +80,7 @@ namespace calculator
 
         private void buttonDIV_Click(object sender, EventArgs e)
         {
+            
             textBox1.Text = textBox1.Text + "/";
         }
 
@@ -103,19 +104,31 @@ namespace calculator
             else if (textBox1.Text.Split('-').Length > 1)
             {
                 textBox1.Text = (Convert.ToInt16(values[0]) - Convert.ToInt16(values[1])).ToString();
-
             }
-            else if (textBox1.Text.Split('*').Length > 1)
+
+            string[] values1 = textBox1.Text.Split('*');
+
+            if (values1.Length > 1)
             {
-                textBox1.Text = (Convert.ToInt16(values[0]) * Convert.ToInt16(values[1])).ToString();
-
+                textBox1.Text = (Convert.ToInt16(values1[0]) * Convert.ToInt16(values1[1])).ToString();
             }
+             string[] values2 = textBox1.Text.Split('/');
 
-
-
-
+            if (values2.Length > 1)
+            {
+                textBox1.Text = (Convert.ToInt16(values2[0]) / Convert.ToInt16(values2[1])).ToString();
+            }
+            
         }
-    }
+    } 
+
 }
+            
+           
+
+
+
+
+ 
 
 
